@@ -1,0 +1,44 @@
+╔══════════════════════════════════════════════════════════════╗
+║          PORTFOLIO BACKEND & DATABASE SETUP GUIDE            ║
+╚══════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 1: DATABASE SETUP (phpMyAdmin में)                      │
+└──────────────────────────────────────────────────────────────┘
+
+1. XAMPP Control Panel खोलें
+2. MySQL को START करें (अगर चल नहीं रहा है)
+3. Browser में जाएं: http://localhost/phpmyadmin
+4. Left sidebar से "mnishdb" database select करें
+   (अगर नहीं है तो "New" click करके "mnishdb" बनाएं)
+5. Top पर "SQL" tab click करें
+6. File खोलें: backend/create_tables.sql
+7. सारा content copy करके SQL box में paste करें
+8. नीचे "Go" button दबाएं
+
+✅ Success होने पर 3 tables दिखेंगी:
+   - skills (10 skills के साथ)
+   - team (empty)
+   - projects (3 projects के साथ)
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 2: BACKEND SERVER START करें                            │
+└──────────────────────────────────────────────────────────────┘
+
+Option 1: START_BACKEND.bat file double-click करें
+OR
+Option 2: Terminal में:
+  cd backend
+  npm start
+
+✅ Server चलेगा: http://localhost:5000
+
+┌──────────────────────────────────────────────────────────────┐
+│ STEP 3: FRONTEND (यह पहले से चल रहा होगा)                   │
+└──────────────────────────────────────────────────────────────┘
+
+Website:     http://localhost:5173
+Admin Panel: http://localhost:5173/mnish
+
+═══════════════════════════════════════════════════════════════
+

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "p1",
+    "title": "Food - Online Food Ordering System",
+    "description": "Developed a responsive food ordering system using HTML and CSS to provide a user-friendly interface for browsing and selecting food items. Designed an intuitive layout for seamless navigation, ensuring a visually appealing and efficient ordering experience.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "Responsive Design"
+    ],
+    "image": "placeholder1",
+    "link": "https://github.com/dashboard"
+  },
+  {
+    "id": "p2",
+    "title": "Password Generator",
+    "description": "A simple password generator built using HTML, CSS, and JavaScript. It allows users to generate secure passwords of desired length, with options to include uppercase letters, lowercase letters, numbers, and special characters.",
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "image": "placeholder2",
+    "link": "https://github.com/dashboard"
+  },
+  {
+    "id": "p3",
+    "title": "MERN Stack Projects",
+    "description": "Multiple web applications developed using MERN stack (MongoDB, Express.js, React.js, Node.js) as part of various internships and certifications.",
+    "tech": [
+      "React.js",
+      "Node.js",
+      "MongoDB",
+      "Express.js"
+    ],
+    "image": "placeholder3",
+    "link": "https://github.com/dashboard"
+  }
+]

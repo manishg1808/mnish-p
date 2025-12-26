@@ -22,7 +22,6 @@ export default function Skills() {
         setProgress(obj)
       }, 200)
     } catch (error) {
-      console.error('Error fetching skills:', error)
       // Fallback to empty array if backend is not running
       setSkills([])
     } finally {

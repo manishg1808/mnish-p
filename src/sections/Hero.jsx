@@ -34,8 +34,6 @@ export default function Hero() {
           }
           
           if (Array.isArray(data) && data.length > 0) {
-            console.log(`📥 Received ${data.length} banners from API`)
-            
             // Accept ALL banners that have media - no strict filtering
             const validBanners = data.filter(banner => {
               // Only check if media exists and is not empty
@@ -43,25 +41,11 @@ export default function Hero() {
                               typeof banner.media === 'string' && 
                               banner.media.trim().length > 0
               
-              if (hasMedia) {
-                console.log('✅ Banner accepted:', {
-                  id: banner.id,
-                  media_type: banner.media_type || 'image',
-                  media_length: banner.media.length,
-                  firstChars: banner.media.substring(0, 50)
-                })
-                return true
-              } else {
-                console.warn('⚠️ Banner skipped - no media:', banner.id)
-                return false
-              }
+              return hasMedia
             })
-            
-            console.log(`📊 Valid banners: ${validBanners.length} out of ${data.length}`)
             
             // Add default banner at the beginning
             const allBanners = [defaultBanner, ...validBanners]
-            console.log(`✅ Total banners to display: ${allBanners.length} (1 default + ${validBanners.length} from API)`)
             
             // Only reset index on initial load
             if (isInitialLoad.current) {
@@ -87,7 +71,6 @@ export default function Hero() {
             setBanners(allBanners)
           } else {
             // If no banners from API, use only default
-            console.log('📊 No banners from API, using default only')
             setBanners([defaultBanner])
             if (isInitialLoad.current) {
               currentIndexRef.current = 0
@@ -111,7 +94,6 @@ export default function Hero() {
           }
         }
       } catch (error) {
-        console.error('Error fetching banners:', error)
         // On error, use default banner
         setBanners([{
           id: 'default',
@@ -295,17 +277,6 @@ export default function Hero() {
             }}
           >
             {banners.map((banner, index) => {
-              // Debug log for all banners
-              console.log(`🎨 Rendering banner ${index}:`, {
-                id: banner.id,
-                hasMedia: !!banner.media,
-                mediaType: banner.media_type,
-                mediaLength: banner.media?.length || 0,
-                mediaStart: banner.media ? (banner.media.startsWith('data:') ? 'data:image' : banner.media.substring(0, 30)) : 'no media',
-                isCurrent: index === currentBannerIndex,
-                title: banner.title,
-                subtitle: banner.subtitle
-              })
               return (
               <div
                 key={banner.id || index}
@@ -348,24 +319,7 @@ export default function Hero() {
                         zIndex: 0,
                       }}
                       loading="eager"
-                      onLoad={() => {
-                        console.log('✅ Banner image loaded successfully:', {
-                          id: banner.id || 'default',
-                          index,
-                          media_type: banner.media_type || 'image',
-                          media_length: banner.media?.length || 0,
-                          src_preview: banner.media ? (banner.media.startsWith('data:') ? 'data:image/...' : banner.media.substring(0, 50)) : 'no media'
-                        })
-                      }}
                       onError={(e) => {
-                        console.error('❌ Banner image failed to load:', {
-                          id: banner.id,
-                          index,
-                          media_type: banner.media_type,
-                          media_preview: banner.media ? (banner.media.startsWith('data:') ? 'data:image/...' : banner.media.substring(0, 100)) : 'no media',
-                          media_length: banner.media?.length || 0,
-                          src_type: banner.media ? (banner.media.startsWith('data:') ? 'base64' : 'url') : 'none'
-                        })
                         // Show error placeholder but keep trying
                         e.target.style.backgroundColor = '#1a1a1a'
                         e.target.style.display = 'flex'
@@ -396,23 +350,8 @@ export default function Hero() {
                       autoPlay
                       muted
                       playsInline
-                      onError={(e) => {
-                        console.error('❌ Banner video failed to load:', {
-                          id: banner.id,
-                          index,
-                          media_preview: banner.media ? banner.media.substring(0, 100) : 'no media',
-                          src: banner.media
-                        })
-                      }}
                       onLoadedMetadata={(e) => {
                         // Video metadata loaded, duration is available
-                        const video = e.target
-                        if (video.duration) {
-                          console.log(`✅ Video loaded - duration: ${video.duration}s`, {
-                            id: banner.id,
-                            index
-                          })
-                        }
                       }}
                     />
                   )}

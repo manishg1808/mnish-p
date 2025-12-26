@@ -12,7 +12,8 @@ npm install
 3. Import the database:
    - Open phpMyAdmin (http://localhost/phpmyadmin)
    - Create database `mnishdb` if not exists
-   - Import `database.sql` file or run the SQL commands manually
+   - Run `create_tables.sql` file to create all tables
+   - Run `create_about_table.sql` if about table is not auto-created
 
 4. Update `.env` file with your database credentials if needed:
 ```

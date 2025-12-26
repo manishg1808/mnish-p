@@ -14,7 +14,6 @@ export default function Team() {
       const data = await response.json()
       setTeamMembers(data)
     } catch (error) {
-      console.error('Error fetching team:', error)
       // Fallback to empty array if backend is not running
       setTeamMembers([])
     } finally {

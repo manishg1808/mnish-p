@@ -19,7 +19,6 @@ export default function Projects() {
       // Ensure data is an array
       setProjects(Array.isArray(data) ? data : [])
     } catch (error) {
-      console.error('Error fetching projects:', error)
       // Fallback to empty array if backend is not running
       setProjects([])
     } finally {

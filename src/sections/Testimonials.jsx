@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useData } from '../context/DataContext.jsx'
 
 export default function Testimonials() {
-  const testimonials = [
+  const { testimonials: testimonialsData } = useData()
+  
+  // Fallback to default testimonials if API data is empty
+  const defaultTestimonials = [
     {
       id: 1,
       name: 'Saul Goodman',
@@ -38,27 +42,35 @@ export default function Testimonials() {
       fullQuote: 'Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.',
     },
   ]
-
+  
+  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : defaultTestimonials
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
+    if (testimonials.length === 0) return
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [testimonials.length])
 
   const goToSlide = (index) => {
     setCurrentIndex(index)
   }
 
   const nextSlide = () => {
+    if (testimonials.length === 0) return
     setCurrentIndex((prev) => (prev + 1) % testimonials.length)
   }
 
   const prevSlide = () => {
+    if (testimonials.length === 0) return
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+  
+  if (testimonials.length === 0) {
+    return null
   }
 
   return (

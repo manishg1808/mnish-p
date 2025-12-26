@@ -1,44 +1,98 @@
 import React from 'react'
+import { useData } from '../context/DataContext.jsx'
 
 export default function Services() {
-  const services = [
+  const { services } = useData()
+  
+  // Fallback to default services if API data is empty
+  const defaultServices = [
     {
       id: 1,
-      icon: 'ri-palette-line',
-      title: 'Lorem Ipsum',
-      description: 'Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident',
+      icon: 'ri-checkbox-circle-line',
+      title: 'Static Website Development',
+      description: 'Professional static websites built with modern technologies, fast loading times, and SEO optimization for your business needs.',
     },
     {
       id: 2,
-      icon: 'ri-global-line',
-      title: 'Dolor Sitema',
-      description: 'Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata',
+      icon: 'ri-briefcase-line',
+      title: 'Portfolio Development',
+      description: 'Creative and impressive portfolio websites to showcase your work, skills, and achievements in the best possible way.',
     },
     {
       id: 3,
-      icon: 'ri-flashlight-line',
-      title: 'Sed ut perspiciatis',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur',
+      icon: 'ri-information-line',
+      title: 'Informational Website',
+      description: 'Well-structured informational websites that effectively communicate your message and provide valuable content to visitors.',
     },
     {
       id: 4,
-      icon: 'ri-smartphone-line',
-      title: 'Magni Dolores',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+      icon: 'ri-star-line',
+      title: 'Custom Website Development',
+      description: 'Tailored website solutions designed specifically for your unique requirements and business objectives.',
     },
     {
       id: 5,
-      icon: 'ri-tools-line',
-      title: 'Nemo Enim',
-      description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque',
+      icon: 'ri-wordpress-line',
+      title: 'WordPress Development',
+      description: 'Custom WordPress websites with themes, plugins, and full content management capabilities for easy updates.',
     },
     {
       id: 6,
-      icon: 'ri-briefcase-line',
-      title: 'Eiusmod Tempor',
-      description: 'Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi',
+      icon: 'ri-server-line',
+      title: 'Backend Development',
+      description: 'Robust backend systems and APIs built with best practices to power your web applications and services.',
+    },
+    {
+      id: 7,
+      icon: 'ri-file-text-line',
+      title: 'Landing Page',
+      description: 'High-converting landing pages designed to capture leads and drive action with compelling design and copy.',
+    },
+    {
+      id: 8,
+      icon: 'ri-refresh-line',
+      title: 'Dynamic Website Development',
+      description: 'Interactive and dynamic websites with real-time content updates and engaging user experiences.',
+    },
+    {
+      id: 9,
+      icon: 'ri-lightbulb-line',
+      title: 'UI/UX Design',
+      description: 'User-centric interface design and user experience optimization to create intuitive and beautiful digital products.',
+    },
+    {
+      id: 10,
+      icon: 'ri-shield-line',
+      title: 'Admin Panel Development',
+      description: 'Secure and functional admin panels with authentication, role management, and comprehensive dashboard features.',
+    },
+    {
+      id: 11,
+      icon: 'ri-code-s-slash-line',
+      title: 'Development in Any Programming Language',
+      description: 'Expert development services in multiple programming languages including React, Node.js, Python, PHP, and more.',
+    },
+    {
+      id: 12,
+      icon: 'ri-pages-line',
+      title: 'Frontend Development',
+      description: 'Modern frontend development using latest frameworks and libraries to create responsive and interactive user interfaces.',
+    },
+    {
+      id: 13,
+      icon: 'ri-search-line',
+      title: 'SEO',
+      description: 'Search engine optimization services to improve your website\'s visibility and ranking in search results.',
+    },
+    {
+      id: 14,
+      icon: 'ri-tools-line',
+      title: 'Website Maintenance',
+      description: 'Ongoing website maintenance, updates, security patches, and performance optimization to keep your site running smoothly.',
     },
   ]
+  
+  const displayServices = services && services.length > 0 ? services : defaultServices
 
   return (
     <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -51,8 +105,8 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map(service => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {displayServices.map(service => (
             <div
               key={service.id}
               className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"

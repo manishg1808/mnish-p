@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { DataProvider } from './context/DataContext.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import Footer from './components/Footer.jsx'
 import Hero from './sections/Hero.jsx'
@@ -30,27 +31,29 @@ export default function App() {
   }, [dark])
 
   return (
-    <div className="min-h-screen flex bg-white dark:bg-gray-950">
-      <Routes>
-        <Route path="/mnish" element={<Admin />} />
-        <Route path="*" element={
-          <>
-            <Sidebar dark={dark} setDark={setDark} />
-            <main className="flex-1 lg:ml-64">
-              <Hero />
-              <About />
-              <Skills />
-              <Portfolio />
-              <Team />
-              <Services />
-              <Certificate />
-              <Testimonials />
-              <Contact />
-              <Footer />
-            </main>
-          </>
-        } />
-      </Routes>
-    </div>
+    <DataProvider>
+      <div className="min-h-screen flex bg-white dark:bg-gray-950 overflow-x-hidden w-full">
+        <Routes>
+          <Route path="/mnish" element={<Admin />} />
+          <Route path="*" element={
+            <>
+              <Sidebar dark={dark} setDark={setDark} />
+              <main className="flex-1 lg:ml-64 overflow-x-hidden w-full">
+                <Hero />
+                <About />
+                <Skills />
+                <Portfolio />
+                <Team />
+                <Services />
+                <Certificate />
+                <Testimonials />
+                <Contact />
+                <Footer />
+              </main>
+            </>
+          } />
+        </Routes>
+      </div>
+    </DataProvider>
   )
 }

@@ -13,17 +13,12 @@ if (!rootElement) {
   document.body.innerHTML = '<div style="padding: 20px; color: red;">Error: Root element not found!</div>'
 } else {
   ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
+    <React.StrictMode>
       <ErrorBoundary>
-        <BrowserRouter
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true
-          }}
-        >
-      <App />
-    </BrowserRouter>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ErrorBoundary>
-  </React.StrictMode>
-)
+    </React.StrictMode>
+  )
 }

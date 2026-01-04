@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import profile from '../assets/profile.svg'
+import profileImage from '../assets/m.JPG'
 
 const NavItem = ({ href, icon, children, active, onNavClick }) => {
   const handleClick = (e) => {
@@ -128,11 +128,20 @@ export default function Sidebar({ dark, setDark }) {
         <div className="flex flex-col h-full">
           {/* Profile Section */}
           <div className="flex flex-col items-center py-3 px-2 border-b border-gray-800">
-            <img 
-              src={profile} 
-              alt="Profile" 
-              className="w-36 h-36 rounded-full border-2 border-indigo-600 mb-1.5 object-cover shadow-lg"
-            />
+            <div className="relative mb-2">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-1">
+                <div className="w-full h-full rounded-full bg-gray-900 dark:bg-gray-950"></div>
+              </div>
+              <img
+                src={profileImage}
+                alt="Profile"
+                className="relative w-36 h-36 rounded-full border-4 border-transparent object-cover shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-gray-800 to-gray-900"
+                style={{
+                  background: 'linear-gradient(135deg, #1f2937 0%, #111827 100%)'
+                }}
+              />
+              <div className="absolute inset-0 rounded-full ring-2 ring-indigo-500/20 animate-pulse"></div>
+            </div>
             <h1 className="text-2xl font-bold mb-1">
               <span className="glow-brackets">&lt; </span>
               <span> Manish Kumar </span>

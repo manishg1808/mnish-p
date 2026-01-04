@@ -146,10 +146,6 @@ export default function Team() {
       <div className="container mx-auto max-w-7xl px-6 md:px-12 lg:px-20 w-full overflow-x-hidden">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Team</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate.
-          </p>
         </div>
 
         {loading ? (

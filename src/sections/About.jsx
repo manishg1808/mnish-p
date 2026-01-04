@@ -88,11 +88,9 @@ export default function About() {
             About Me
             <span className="glow-brackets-hero">  /&gt;</span>
           </h2>
-          {aboutData.sub_heading && (
-            <h3 className="text-sm md:text-base font-semibold text-indigo-600 dark:text-indigo-400 mb-4 text-left">
-              {aboutData.sub_heading}
-            </h3>
-          )}
+          <h3 className="text-sm md:text-base font-semibold text-indigo-600 dark:text-indigo-400 mb-4 text-justify">
+            To obtain a position that allows me to leverage my strong organizational skills, educational background, and ability to collaborate effectively with others to contribute to the success of the team and organization.
+          </h3>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -143,14 +141,20 @@ export default function About() {
                 {aboutData.introduction}
               </p>
             ) : (
-              <>
-                <p className="text-black dark:text-gray-100 text-justify mb-4">
+              <div className="text-black dark:text-gray-100 text-justify">
+                <p className="mb-4">
                   My name is Manish Kumar. I belong to Ara, Bihar, which is a big town. But currently, I am living in Delhi NCR.
                 </p>
-                <p className="text-black dark:text-gray-100 text-justify">
-                  I have completed my graduation in BCA from Meerut Institute of Technology. I completed my 12th from H.D. Jain College and my 10th from STSV International School. I have also completed my internships with Edunet Foundation and Unified Mentor. My short-term goal is to learn new skills by working with your organization. My long-term goal is to become a successful person and make my parents proud. My strength is my honesty, and my weakness is that I am sometimes too punctual. My hobby is playing Ludo. Thank you — that's all about me.
+                <p className="mb-4">
+                  I have completed my graduation in BCA from Meerut Institute of Technology. I completed my 12th from H.D. Jain College and my 10th from STSV International School.
                 </p>
-              </>
+                <p className="mb-4">
+                  I have also completed my internships with Mindware technology, Qspider, udemy, Edunet Foundation and Unified Mentor etc. My short-term goal is to learn new skills by working with your organization. My long-term goal is to become a successful person and make my parents proud.
+                </p>
+                <p className="mb-4">
+                  My strength is my honesty and my weakness is too punctual. My hobby is playing Ludo. Thank you — that's all about me.
+                </p>
+              </div>
             )}
           </div>
         </div>

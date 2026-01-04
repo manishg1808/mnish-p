@@ -90,6 +90,12 @@ export default function Services() {
       title: 'Website Maintenance',
       description: 'Ongoing website maintenance, updates, security patches, and performance optimization to keep your site running smoothly.',
     },
+    {
+      id: 15,
+      icon: 'ri-global-line',
+      title: 'Redgine Website',
+      description: 'Professional Redgine website development with modern design, responsive layout, and optimized performance for exceptional user experience.',
+    },
   ]
   
   const displayServices = services && services.length > 0 ? services : defaultServices
@@ -99,10 +105,6 @@ export default function Services() {
       <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Services</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

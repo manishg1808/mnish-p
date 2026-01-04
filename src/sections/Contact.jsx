@@ -10,8 +10,27 @@ export default function Contact() {
   const onSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    
-    // Simulate API call
+
+    // Prepare WhatsApp message
+    const message = `*New Contact Form Message*
+
+*Name:* ${form.name}
+*Email:* ${form.email}
+*Subject:* ${form.subject}
+
+*Message:*
+${form.message}`
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message)
+
+    // WhatsApp URL
+    const whatsappUrl = `https://wa.me/918986010819?text=${encodedMessage}`
+
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank')
+
+    // Reset form and show success message
     setTimeout(() => {
       setLoading(false)
       setSubmitted(true)
@@ -20,11 +39,29 @@ export default function Contact() {
     }, 1000)
   }
 
+  const services = [
+    'Static Website Development',
+    'Portfolio Development',
+    'Informational Website',
+    'Custom Website Development',
+    'WordPress Development',
+    'Backend Development',
+    'Landing Page',
+    'Dynamic Website Development',
+    'UI/UX Design',
+    'Admin Panel Development',
+    'Development in Any Programming Language',
+    'Frontend Development',
+    'SEO',
+    'Website Maintenance',
+    'Redgine Website'
+  ]
+
   const contactInfo = [
     {
       icon: 'ri-map-pin-line',
       title: 'Address',
-      content: 'MIET Hostel, Baghpat Bypass, N.H 58, Meerut, Uttar Pradesh, 250005',
+      content: 'Delhi NCR',
     },
     {
       icon: 'ri-phone-line',
@@ -102,15 +139,21 @@ export default function Contact() {
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Subject
                 </label>
-                <input
+                <select
                   id="subject"
                   name="subject"
-                  type="text"
                   value={form.subject}
                   onChange={onChange}
                   className="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-400 transition"
                   required
-                />
+                >
+                  <option value="">Select a service</option>
+                  {services.map((service, index) => (
+                    <option key={index} value={service}>
+                      {service}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

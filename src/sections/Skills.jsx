@@ -9,7 +9,7 @@ export default function Skills() {
     Frontend: [
       { id: 1, name: 'HTML', percentage: 90, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
       { id: 2, name: 'CSS', percentage: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-      { id: 3, name: 'Tailwind', percentage: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
+      { id: 3, name: 'Tailwind', percentage: 80, icon: 'https://cdn.simpleicons.org/tailwindcss' },
       { id: 4, name: 'Bootstrap', percentage: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
       { id: 5, name: 'JavaScript', percentage: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
       { id: 6, name: 'TypeScript', percentage: 40, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
@@ -34,7 +34,9 @@ export default function Skills() {
     ],
     Others: [
       { id: 21, name: 'Canva', percentage: 40, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
-      { id: 22, name: 'SEO', percentage: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' }
+      { id: 22, name: 'SEO', percentage: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' },
+      { id: 23, name: 'Google Analytics', percentage: 100, icon: 'https://cdn.simpleicons.org/googleanalytics' },
+      { id: 24, name: 'GitHub', percentage: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' }
     ]
   }
 
@@ -192,5 +194,3 @@ export default function Skills() {
     </section>
   )
 }
-
-

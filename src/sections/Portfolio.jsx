@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { useData } from '../context/DataContext.jsx'
 import { PORTFOLIO_CONFIG } from '../config/portfolioConfig.js'
 import { DEFAULT_PROJECTS_CONFIG } from '../config/portfolioConfig.js'
@@ -9,7 +10,7 @@ import {
   ensureMinimumProjects 
 } from '../utils/portfolioHelpers.js'
 
-export default function Portfolio() {
+export default function Portfolio({ showAll = false, sectionId = 'project' }) {
   const { projects: projectsData, loading } = useData()
   const [activeCategory, setActiveCategory] = useState(PORTFOLIO_CONFIG.categories[0])
   
@@ -56,8 +57,10 @@ export default function Portfolio() {
     }
   }, [activeCategory, projects])
 
+  const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 10)
+
   return (
-    <section id="project" className="py-20 bg-white dark:bg-gray-950">
+    <section id={sectionId} className="py-20 bg-white dark:bg-gray-950">
       <div className="container mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -99,8 +102,9 @@ export default function Portfolio() {
             <p className="text-gray-600 dark:text-gray-400">Loading projects...</p>
           </div>
         ) : (
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6`}>
-            {filteredProjects.map(project => {
+          <>
+            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6`}>
+            {visibleProjects.map(project => {
               const imageSrc = getProjectImageSrc(project.image, project.title)
               
               return (
@@ -140,10 +144,21 @@ export default function Portfolio() {
                 </div>
               )
             })}
-          </div>
+            </div>
+            {!showAll && (
+              <div className="text-center mt-8">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 text-2xl font-extrabold tracking-wide transition-colors duration-200"
+                >
+                  <span>View More</span>
+                  <i className="ri-arrow-right-line text-2xl"></i>
+                </Link>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>
   )
 }
-

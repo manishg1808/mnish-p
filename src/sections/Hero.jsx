@@ -16,6 +16,29 @@ export default function Hero() {
   const isInitialLoad = useRef(true)
   const currentIndexRef = useRef(0)
   const professions = ["Freelancer", "Designer", "Jr. Developer", "UI/UX Designer", "Web Developer", "Frontend Developer", "Backend Developer"]
+  const skillItems = [
+    { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'Tailwind', icon: 'https://cdn.simpleicons.org/tailwindcss' },
+    { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+    { name: 'WordPress', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg' },
+    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
+    { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+    { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+    { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+    { name: 'Vercel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg' },
+    { name: 'Netlify', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg' },
+    { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg' },
+    { name: 'SEO', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' },
+    { name: 'Google Analytics', icon: 'https://cdn.simpleicons.org/googleanalytics' }
+  ]
+  const tickerSkills = [...skillItems, ...skillItems]
 
   // Fetch banners from API
   useEffect(() => {
@@ -263,7 +286,7 @@ export default function Hero() {
     <section 
       ref={parallaxRef}
       id="home" 
-      className="min-h-screen flex items-center relative overflow-hidden"
+      className="h-screen min-h-[100vh] flex items-center relative overflow-hidden"
     >
       {/* Sliding Banner Background - Left to Right Smooth Slide */}
       <div className="absolute inset-0 overflow-hidden" style={{ height: '100vh', width: '100%', zIndex: 0 }}>
@@ -382,7 +405,7 @@ export default function Hero() {
       
       {/* Banner Navigation Dots */}
       {banners.length > 1 && (
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+        <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
           {banners.map((_, index) => (
             <button
               key={index}
@@ -442,6 +465,26 @@ export default function Hero() {
               </div>
             </h2>
           )}
+        </div>
+      </div>
+
+      {/* Decorative Skills Strip */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 bg-white">
+        <div className="relative h-16 overflow-visible border-t border-gray-200">
+          <div className="animate-marquee inline-flex items-start gap-7 whitespace-nowrap px-5 pt-0">
+            {tickerSkills.map((skill, index) => (
+              <div key={`hero-skill-icon-${index}`} className="inline-flex flex-col items-center justify-start">
+                <div className="h-20 w-20 -translate-y-[58%] rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center p-4">
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -477,36 +477,36 @@ export default function Admin() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Top Navigation Bar */}
-      <nav className="bg-white dark:bg-gray-800 shadow-lg border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
+      <nav className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg border-b border-slate-200/50 dark:border-slate-800/50 sticky top-0 z-50">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200 hover:scale-105"
               >
                 <i className={`${sidebarOpen ? 'ri-close-line' : 'ri-menu-line'} text-xl`}></i>
               </button>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
                   <i className="ri-dashboard-3-line text-white text-xl"></i>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 dark:text-white">Admin Panel</h1>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Portfolio Management</p>
+                  <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Admin Panel</h1>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Portfolio Management</p>
                 </div>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-green-700 dark:text-green-400">Connected</span>
+              <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-200 dark:border-emerald-800">
+                <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-lg shadow-emerald-500/50"></div>
+                <span className="text-sm font-medium text-emerald-700 dark:text-emerald-400">Connected</span>
               </div>
               <a
                 href="/"
-                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors text-sm font-medium flex items-center gap-2"
+                className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl transition-all duration-200 text-sm font-semibold flex items-center gap-2 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105"
               >
                 <i className="ri-external-link-line"></i>
                 <span className="hidden sm:inline">View Site</span>
@@ -518,23 +518,23 @@ export default function Admin() {
 
       <div className="flex">
         {/* Sidebar */}
-        <aside className={`fixed lg:static inset-y-0 left-0 z-40 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out ${
+        <aside className={`fixed lg:static inset-y-0 left-0 z-40 w-72 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-800/50 transform transition-transform duration-300 ease-in-out shadow-xl ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}>
-          <div className="h-full flex flex-col pt-4 pb-6 overflow-y-auto">
-            <div className="px-4 mb-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+          <div className="h-full flex flex-col pt-6 pb-6 overflow-y-auto">
+            <div className="px-6 mb-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
                   <i className="ri-admin-line text-white text-2xl"></i>
                 </div>
                 <div>
-                  <h2 className="font-bold text-gray-900 dark:text-white">Dashboard</h2>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Control Center</p>
+                  <h2 className="font-bold text-lg text-slate-900 dark:text-white">Dashboard</h2>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Control Center</p>
                 </div>
               </div>
             </div>
 
-            <nav className="flex-1 px-3 space-y-1">
+            <nav className="flex-1 px-4 space-y-2">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
@@ -542,16 +542,16 @@ export default function Admin() {
                     setActiveTab(tab.id)
                     setSidebarOpen(false)
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                  className={`w-full flex items-center gap-4 px-5 py-3.5 rounded-xl transition-all duration-200 group ${
                     activeTab === tab.id
-                      ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/50'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-500/40 scale-105'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:scale-102'
                   }`}
                 >
-                  <i className={`${tab.icon} text-lg`}></i>
-                  <span className="font-medium">{tab.label}</span>
+                  <i className={`${tab.icon} text-xl ${activeTab === tab.id ? 'scale-110' : ''} transition-transform`}></i>
+                  <span className="font-semibold text-sm">{tab.label}</span>
                   {activeTab === tab.id && (
-                    <i className="ri-arrow-right-s-line ml-auto"></i>
+                    <i className="ri-arrow-right-s-line ml-auto text-lg animate-pulse"></i>
                   )}
                 </button>
               ))}
@@ -562,7 +562,7 @@ export default function Admin() {
         {/* Overlay for mobile */}
         {sidebarOpen && (
           <div
-            className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden transition-opacity"
             onClick={() => setSidebarOpen(false)}
           />
         )}
@@ -570,18 +570,18 @@ export default function Admin() {
         {/* Main Content */}
         <main className="flex-1 lg:ml-0 p-4 sm:p-6 lg:p-8">
           {/* Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
+                className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-800/50 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">{stat.label}</p>
-                    <p className="text-3xl font-bold text-gray-900 dark:text-white">{stat.value}</p>
+                    <p className="text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2 uppercase tracking-wide">{stat.label}</p>
+                    <p className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{stat.value}</p>
                   </div>
-                  <div className={`w-14 h-14 rounded-xl ${stat.color} flex items-center justify-center shadow-lg`}>
+                  <div className={`w-16 h-16 rounded-2xl ${stat.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <i className={`${stat.icon} text-white text-2xl`}></i>
                   </div>
                 </div>
@@ -590,24 +590,28 @@ export default function Admin() {
           </div>
 
           {/* Content Area */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-6 sm:p-8">
+          <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200/50 dark:border-slate-800/50 p-6 sm:p-8 lg:p-10">
             {loading ? (
               <div className="flex flex-col items-center justify-center py-20">
-                <div className="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p className="text-gray-600 dark:text-gray-400 font-medium">Loading data...</p>
+                <div className="relative">
+                  <div className="w-20 h-20 border-4 border-blue-200 dark:border-blue-900 rounded-full"></div>
+                  <div className="w-20 h-20 border-4 border-blue-600 border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
+                </div>
+                <p className="text-slate-600 dark:text-slate-400 font-semibold mt-6 text-lg">Loading data...</p>
+                <p className="text-slate-400 dark:text-slate-500 text-sm mt-2">Please wait</p>
               </div>
             ) : (
               <div className="space-y-6">
                 {/* Home Banner Tab */}
                 {activeTab === 'home' && (
                   <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <i className="ri-home-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i className="ri-home-line text-white text-2xl"></i>
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Home Banner</h2>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Manage your homepage banner content</p>
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Home Banner</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage your homepage banner content</p>
                       </div>
                     </div>
                     <form onSubmit={async (e) => {
@@ -677,7 +681,7 @@ export default function Admin() {
                             type="text"
                             value={homeForm.title}
                             onChange={(e) => setHomeForm({ ...homeForm, title: e.target.value })}
-                            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
+                            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 dark:text-white shadow-sm hover:shadow-md"
                             placeholder="Enter banner title"
                           />
                         </div>
@@ -687,7 +691,7 @@ export default function Admin() {
                             type="text"
                             value={homeForm.subtitle}
                             onChange={(e) => setHomeForm({ ...homeForm, subtitle: e.target.value })}
-                            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-900 dark:text-white"
+                            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 dark:text-white shadow-sm hover:shadow-md"
                             placeholder="Enter subtitle"
                           />
                         </div>
@@ -715,7 +719,7 @@ export default function Admin() {
                                   setHomeForm({ ...homeForm, image: '', mediaType: '' })
                                 }
                               }}
-                              className="w-full px-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-gray-900 dark:text-white text-sm"
+                              className="w-full px-4 py-2 bg-slate-50 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 dark:text-white text-sm shadow-sm hover:shadow-md"
                               placeholder="https://example.com/image.jpg"
                             />
                             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Use URL for large images (recommended for files &gt; 5MB)</p>
@@ -853,7 +857,7 @@ export default function Admin() {
                     </form>
                     
                     {/* Banners List */}
-                    <div className="mt-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                    <div className="mt-8 bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                         <i className="ri-image-line text-indigo-500"></i>
                         Active Banners ({banners.length})
@@ -929,13 +933,13 @@ export default function Admin() {
                 {/* Sidebar Tab */}
                 {activeTab === 'sidebar' && (
                   <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <i className="ri-side-bar-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i className="ri-side-bar-line text-white text-2xl"></i>
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Sidebar Management</h2>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Manage sidebar profile and navigation</p>
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Sidebar Management</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage sidebar profile and navigation</p>
                       </div>
                     </div>
 
@@ -989,7 +993,7 @@ export default function Admin() {
                       }
                     }} className="space-y-6">
                       {/* Profile Section */}
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className="ri-user-line text-indigo-500"></i>
                           Profile Information
@@ -1127,7 +1131,7 @@ export default function Admin() {
                       </div>
 
                       {/* Social Links Section */}
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className="ri-links-line text-indigo-500"></i>
                           Social Links
@@ -1211,13 +1215,13 @@ export default function Admin() {
                 {/* About Tab */}
                 {activeTab === 'about' && (
                   <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <i className="ri-user-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i className="ri-user-line text-white text-2xl"></i>
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">About Section</h2>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Manage your personal information</p>
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">About Section</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Manage your personal information</p>
                       </div>
                     </div>
                     <form onSubmit={async (e) => {
@@ -1341,17 +1345,17 @@ export default function Admin() {
                 {/* Skills Tab */}
                 {activeTab === 'skills' && (
                   <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <i className="ri-code-s-slash-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i className="ri-code-s-slash-line text-white text-2xl"></i>
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Skills Management</h2>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Add and manage your skills</p>
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Skills Management</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Add and manage your skills</p>
                       </div>
                     </div>
                     <div className="grid lg:grid-cols-2 gap-6">
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className={editingSkill ? "ri-edit-line text-indigo-500" : "ri-add-circle-line text-indigo-500"}></i>
                           {editingSkill ? 'Edit Skill' : 'Add New Skill'}
@@ -1523,7 +1527,7 @@ export default function Admin() {
                           <div className="flex gap-2">
                             <button
                               type="submit"
-                              className="flex-1 px-4 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-semibold hover:from-indigo-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                              className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white rounded-xl font-semibold hover:from-blue-600 hover:via-indigo-600 hover:to-purple-700 transition-all shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105 flex items-center justify-center gap-2"
                             >
                               <i className={editingSkill ? "ri-save-line" : "ri-add-line"}></i>
                               {editingSkill ? 'Update Skill' : 'Add Skill'}
@@ -1541,7 +1545,7 @@ export default function Admin() {
                           </div>
                         </form>
                       </div>
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className="ri-database-2-line text-purple-500"></i>
                           Skills List ({skills.length})
@@ -1612,10 +1616,14 @@ export default function Admin() {
                 {activeTab === 'projects' && (
                   <div className="space-y-6">
                     {/* Header matching frontend */}
-                    <div className="text-center mb-8">
-                      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                        <span className="text-green-500 dark:text-green-400">//</span> Projects <span className="text-green-500 dark:text-green-400">//</span>
-                      </h2>
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i className="ri-folder-line text-white text-2xl"></i>
+                      </div>
+                      <div>
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Projects Management</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Add and manage your projects</p>
+                      </div>
                     </div>
 
                     {/* Filter Buttons */}
@@ -1647,7 +1655,7 @@ export default function Admin() {
 
                     <div className="grid lg:grid-cols-2 gap-6">
                       {/* Add Project Form */}
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <i className={editingProject ? "ri-edit-line text-indigo-500" : "ri-add-circle-line text-indigo-500"}></i>
@@ -1748,7 +1756,7 @@ export default function Admin() {
                       </div>
 
                       {/* Projects Preview Grid */}
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className="ri-database-2-line text-purple-500"></i>
                           Projects Preview ({projects.filter(p => projectFilter === 'All' || p.category === projectFilter).length})
@@ -1836,17 +1844,17 @@ export default function Admin() {
                 {/* Team Tab */}
                 {activeTab === 'team' && (
                   <div className="space-y-6">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <i className="ri-team-line text-white text-xl"></i>
+                    <div className="flex items-center gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                        <i className="ri-team-line text-white text-2xl"></i>
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Team Management</h2>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Add and manage team members</p>
+                        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">Team Management</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Add and manage team members</p>
                       </div>
                     </div>
                     <div className="grid lg:grid-cols-2 gap-6">
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className="ri-add-circle-line text-indigo-500"></i>
                           Add Team Member
@@ -1892,7 +1900,7 @@ export default function Admin() {
                           </button>
                         </form>
                       </div>
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-600">
+                      <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 dark:from-slate-800/50 dark:to-slate-900/50 rounded-2xl p-6 border border-slate-200/50 dark:border-slate-800/50 shadow-lg backdrop-blur-sm">
                         <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                           <i className="ri-database-2-line text-purple-500"></i>
                           Team Members ({team.length})

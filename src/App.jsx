@@ -10,7 +10,6 @@ import Portfolio from './sections/Portfolio.jsx'
 import Team from './sections/Team.jsx'
 import Services from './sections/Services.jsx'
 import Certificate from './sections/Certificate.jsx'
-import Testimonials from './sections/Testimonials.jsx'
 import Contact from './sections/Contact.jsx'
 import Admin from './pages/Admin.jsx'
 
@@ -35,6 +34,15 @@ export default function App() {
       <div className="min-h-screen flex bg-white dark:bg-gray-950 overflow-x-hidden w-full">
         <Routes>
           <Route path="/mnish" element={<Admin />} />
+          <Route path="/projects" element={
+            <>
+              <Sidebar dark={dark} setDark={setDark} />
+              <main className="flex-1 lg:ml-64 overflow-x-hidden w-full">
+                <Portfolio showAll />
+                <Footer />
+              </main>
+            </>
+          } />
           <Route path="*" element={
             <>
               <Sidebar dark={dark} setDark={setDark} />
@@ -46,7 +54,6 @@ export default function App() {
                 <Team />
                 <Services />
                 <Certificate />
-                <Testimonials />
                 <Contact />
                 <Footer />
               </main>

@@ -57,7 +57,7 @@ export default function Sidebar({ dark, setDark }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'project', 'team', 'services', 'certificate', 'testimonials', 'contact']
+      const sections = ['home', 'about', 'skills', 'project', 'team', 'services', 'certificate', 'contact']
       const scrollPosition = window.scrollY + 100
 
       // Find the current section
@@ -88,7 +88,6 @@ export default function Sidebar({ dark, setDark }) {
     { href: '#team', label: '&lt; teams /&gt;', icon: 'ri-team-line' },
     { href: '#services', label: '&lt; services /&gt;', icon: 'ri-settings-3-line' },
     { href: '#certificate', label: '&lt; certificates /&gt;', icon: 'ri-award-line' },
-    { href: '#testimonials', label: '&lt; testimonials /&gt;', icon: 'ri-chat-quote-line' },
     { href: '#contact', label: '&lt; contact /&gt;', icon: 'ri-mail-line' },
   ]
 
@@ -214,4 +213,3 @@ export default function Sidebar({ dark, setDark }) {
     </>
   )
 }
-

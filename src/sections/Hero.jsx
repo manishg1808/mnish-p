@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
-import backgroundImage from '../assets/me 2.png'
 import defaultBannerImage from '../assets/me.png'
 
 export default function Hero() {
-  const [displayText, setDisplayText] = useState("I'm Freelancer")
-  const [nextText, setNextText] = useState("I'm Designer")
+  const [displayText, setDisplayText] = useState("I'm Full Stack Developer")
+  const [nextText, setNextText] = useState("I'm Backend Developer")
   const [isAnimating, setIsAnimating] = useState(false)
   const [showNext, setShowNext] = useState(false)
   const [offsetY, setOffsetY] = useState(0)
@@ -15,7 +14,16 @@ export default function Hero() {
   const slideTimeoutRef = useRef(null)
   const isInitialLoad = useRef(true)
   const currentIndexRef = useRef(0)
-  const professions = ["Freelancer", "Designer", "Jr. Developer", "UI/UX Designer", "Web Developer", "Frontend Developer", "Backend Developer"]
+  const professions = [
+    'Full Stack Developer',
+    'Backend Developer',
+    'Frontend Developer',
+    'Web Developer',
+    'UI/UX Designer',
+    'Freelancer',
+    'Designer',
+    'Jr. Developer',
+  ]
   const skillItems = [
     { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
     { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
@@ -39,6 +47,7 @@ export default function Hero() {
     { name: 'Google Analytics', icon: 'https://cdn.simpleicons.org/googleanalytics' }
   ]
   const tickerSkills = [...skillItems, ...skillItems]
+  const heroViewportHeight = '100svh'
 
   // Fetch banners from API
   useEffect(() => {
@@ -133,9 +142,9 @@ export default function Hero() {
       }
     }
     fetchBanners()
-    
-    // Refresh banners every 2 seconds to get new uploads immediately
-    const refreshInterval = setInterval(fetchBanners, 2000)
+
+    // Keep periodic refresh conservative to avoid continuous API spam when backend is unavailable.
+    const refreshInterval = setInterval(fetchBanners, 30000)
     return () => clearInterval(refreshInterval)
   }, [])
 
@@ -249,19 +258,19 @@ export default function Hero() {
     const interval = setInterval(() => {
       setIsAnimating(true)
       setShowNext(false)
-      
+
       setTimeout(() => {
         currentIndex = (currentIndex + 1) % professions.length
         setNextText(`I'm ${professions[currentIndex]}`)
         setShowNext(true)
-        
+
         setTimeout(() => {
           setDisplayText(`I'm ${professions[currentIndex]}`)
           setIsAnimating(false)
           setShowNext(false)
         }, 400)
-      }, 50)
-    }, 3000)
+      }, 60)
+    }, 2800)
 
     return () => clearInterval(interval)
   }, [])
@@ -280,23 +289,21 @@ export default function Hero() {
 
   // Get current banner or fallback
   const currentBanner = banners.length > 0 ? banners[currentBannerIndex] : null
-  const backgroundImg = currentBanner?.media || backgroundImage
-
   return (
     <section 
       ref={parallaxRef}
       id="home" 
-      className="h-screen min-h-[100vh] flex items-center relative overflow-hidden"
+      className="h-[100svh] min-h-[100svh] sm:h-screen sm:min-h-screen flex items-center relative overflow-hidden"
     >
       {/* Sliding Banner Background - Left to Right Smooth Slide */}
-      <div className="absolute inset-0 overflow-hidden" style={{ height: '100vh', width: '100%', zIndex: 0 }}>
+      <div className="absolute inset-0 overflow-hidden" style={{ height: heroViewportHeight, width: '100%', zIndex: 0 }}>
         {banners.length > 0 ? (
           <div 
             className="flex transition-transform duration-700 ease-in-out"
             style={{
               width: `${banners.length * 100}%`,
               transform: `translateX(-${currentBannerIndex * (100 / banners.length)}%)`,
-              height: '100vh',
+              height: heroViewportHeight,
             }}
           >
             {banners.map((banner, index) => {
@@ -307,7 +314,7 @@ export default function Hero() {
                 style={{
                   width: `${100 / banners.length}%`,
                   minWidth: `${100 / banners.length}%`,
-                  height: '100vh',
+                  height: heroViewportHeight,
                   flexShrink: 0,
                   overflow: 'hidden',
                   position: 'relative',
@@ -316,7 +323,7 @@ export default function Hero() {
                 <div
                   className="absolute inset-0 w-full"
                   style={{
-                    height: '100vh',
+                    height: heroViewportHeight,
                     width: '100%',
                     transform: `translateY(${offsetY * 0.5}px)`,
                     willChange: 'transform',
@@ -333,8 +340,8 @@ export default function Hero() {
                         objectFit: 'cover',
                         objectPosition: 'center',
                         width: '100%',
-                        height: '100vh',
-                        minHeight: '100vh',
+                        height: heroViewportHeight,
+                        minHeight: heroViewportHeight,
                         display: 'block',
                         position: 'absolute',
                         top: 0,
@@ -361,8 +368,8 @@ export default function Hero() {
                         objectFit: 'cover',
                         objectPosition: 'center',
                         width: '100%',
-                        height: '100vh',
-                        minHeight: '100vh',
+                        height: heroViewportHeight,
+                        minHeight: heroViewportHeight,
                         display: 'block',
                         position: 'absolute',
                         top: 0,
@@ -405,7 +412,7 @@ export default function Hero() {
       
       {/* Banner Navigation Dots */}
       {banners.length > 1 && (
-        <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-30 flex gap-2 sm:bottom-28">
           {banners.map((_, index) => (
             <button
               key={index}
@@ -425,56 +432,47 @@ export default function Hero() {
       )}
       
       {/* Content */}
-      <div className="relative z-20 w-full px-6 md:px-12 lg:px-20 pt-32 md:pt-48 lg:pt-60">
-        <div className="max-w-4xl">
+      <div className="relative z-20 w-full px-4 pt-24 sm:px-6 sm:pt-28 md:px-12 md:pt-48 lg:px-20 lg:pt-60">
+        <div className="max-w-5xl">
           {/* Dynamic Title from Banner */}
           {currentBanner?.title ? (
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-5 leading-tight sm:mb-6">
               <span className="glow-brackets-hero">&lt; </span>
               {currentBanner.title}
               <span className="glow-brackets-hero">  /&gt;</span>
             </h1>
           ) : (
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-5 leading-tight sm:mb-6">
               <span className="glow-brackets-hero">&lt; </span>
               Manish Kumar
               <span className="glow-brackets-hero">  /&gt;</span>
             </h1>
           )}
           
-          {/* Dynamic Subtitle from Banner */}
-          {currentBanner?.subtitle ? (
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8">
-              <span className="glow-brackets-hero">&lt; </span>
-              {currentBanner.subtitle}
-              <span className="glow-brackets-hero">  /&gt;</span>
-            </h2>
-          ) : (
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 overflow-hidden">
-              <div className="relative h-[1.2em]">
-                <span 
-                  className={`inline-block absolute left-0 right-0 ${
-                    isAnimating && !showNext ? 'animate-slide-out' : 
-                    showNext ? 'animate-slide-in' : ''
-                  }`}
-                >
-                  <span className="glow-brackets-hero">&lt; </span>
-                  {showNext ? nextText : displayText}
-                  <span className="glow-brackets-hero">  /&gt;</span>
-                </span>
-              </div>
-            </h2>
-          )}
+          {/* Rotating Subtitle */}
+          <h2 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-8 overflow-hidden">
+            <div className="relative h-[1.2em]">
+              <span
+                className={`inline-block absolute left-0 right-0 ${
+                  isAnimating && !showNext ? 'animate-slide-out' : showNext ? 'animate-slide-in' : ''
+                }`}
+              >
+                <span className="glow-brackets-hero">&lt; </span>
+                {showNext ? nextText : displayText}
+                <span className="glow-brackets-hero">  /&gt;</span>
+              </span>
+            </div>
+          </h2>
         </div>
       </div>
 
       {/* Decorative Skills Strip */}
       <div className="absolute bottom-0 left-0 right-0 z-30 bg-white">
-        <div className="relative h-16 overflow-visible border-t border-gray-200">
-          <div className="animate-marquee inline-flex items-start gap-7 whitespace-nowrap px-5 pt-0">
+        <div className="relative h-14 overflow-visible border-t border-gray-200 sm:h-16">
+          <div className="animate-marquee inline-flex items-start gap-4 whitespace-nowrap px-3 pt-0 sm:gap-7 sm:px-5">
             {tickerSkills.map((skill, index) => (
               <div key={`hero-skill-icon-${index}`} className="inline-flex flex-col items-center justify-start">
-                <div className="h-20 w-20 -translate-y-[58%] rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center p-4">
+                <div className="h-14 w-14 -translate-y-[45%] rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center p-2 sm:h-20 sm:w-20 sm:-translate-y-[58%] sm:p-4">
                   <img
                     src={skill.icon}
                     alt={skill.name}

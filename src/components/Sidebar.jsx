@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import profile from '../assets/profile.svg'
+import profile from '../assets/me 2.png'
 
 const NavItem = ({ href, icon, children, active, onNavClick }) => {
   const handleClick = (e) => {
@@ -57,7 +57,7 @@ export default function Sidebar({ dark, setDark }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'project', 'team', 'services', 'certificate', 'contact']
+      const sections = ['home', 'about', 'skills', 'technology-stack', 'project', 'team', 'services', 'certificate', 'contact']
       const scrollPosition = window.scrollY + 100
 
       // Find the current section
@@ -84,6 +84,7 @@ export default function Sidebar({ dark, setDark }) {
     { href: '#home', label: '&lt; home /&gt;', icon: 'ri-home-line' },
     { href: '#about', label: '&lt; about /&gt;', icon: 'ri-user-line' },
     { href: '#skills', label: '&lt; skills /&gt;', icon: 'ri-code-s-slash-line' },
+    { href: '#technology-stack', label: '&lt; technology stack /&gt;', icon: 'ri-stack-line' },
     { href: '#project', label: '&lt; projects /&gt;', icon: 'ri-briefcase-line' },
     { href: '#team', label: '&lt; teams /&gt;', icon: 'ri-team-line' },
     { href: '#services', label: '&lt; services /&gt;', icon: 'ri-settings-3-line' },
@@ -114,32 +115,32 @@ export default function Sidebar({ dark, setDark }) {
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={`lg:hidden fixed top-4 left-4 z-50 bg-indigo-600 text-white p-3 rounded-lg shadow-lg transition ${
-          mobileMenuOpen ? 'left-64' : 'left-4'
+          mobileMenuOpen ? 'left-[15.5rem]' : 'left-4'
         }`}
       >
         {mobileMenuOpen ? <i className="ri-close-line"></i> : <i className="ri-menu-line"></i>}
       </button>
 
       {/* Sidebar */}
-      <aside className={`fixed left-0 top-0 h-full w-64 bg-gray-900 dark:bg-gray-950 text-white z-40 transform transition-transform duration-300 ${
+      <aside className={`fixed left-0 top-0 h-full w-64 overflow-y-auto bg-gray-900 dark:bg-gray-950 text-white z-40 transform transition-transform duration-300 lg:overflow-visible ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       }`}>
-        <div className="flex flex-col h-full">
+        <div className="flex min-h-full flex-col">
           {/* Profile Section */}
           <div className="flex flex-col items-center py-3 px-2 border-b border-gray-800">
             <img 
               src={profile} 
               alt="Profile" 
-              className="w-36 h-36 rounded-full border-2 border-indigo-600 mb-1.5 object-cover shadow-lg"
+              className="h-24 w-24 rounded-full border-2 border-indigo-600 mb-1.5 object-cover shadow-lg sm:h-32 sm:w-32 lg:h-36 lg:w-36"
             />
-            <h1 className="text-2xl font-bold mb-1">
+            <h1 className="mb-1 text-xl font-bold sm:text-2xl">
               <span className="glow-brackets">&lt; </span>
               <span> Manish Kumar </span>
               <span className="glow-brackets"> /&gt;</span>
             </h1>
             <a 
               href="mailto:mnishg49@gmail.com" 
-              className="text-sm text-gray-300 hover:text-indigo-400 transition mb-0.5 flex items-center gap-1"
+              className="mb-0.5 flex flex-wrap items-center justify-center gap-1 text-center text-xs text-gray-300 transition hover:text-indigo-400 sm:text-sm"
             >
               <i className="ri-mail-line text-base"></i>
               <span className="glow-brackets">&lt;</span>
@@ -148,7 +149,7 @@ export default function Sidebar({ dark, setDark }) {
             </a>
             <a 
               href="tel:+918092970688" 
-              className="text-sm text-gray-300 hover:text-indigo-400 transition mb-1.5 flex items-center gap-1"
+              className="mb-1.5 flex flex-wrap items-center justify-center gap-1 text-center text-xs text-gray-300 transition hover:text-indigo-400 sm:text-sm"
             >
               <i className="ri-phone-line text-base"></i>
               <span className="glow-brackets">&lt;</span>
@@ -181,7 +182,7 @@ export default function Sidebar({ dark, setDark }) {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 overflow-hidden py-1 px-2 flex flex-col nav-glider-container" data-active-index={getActiveIndex()}>
+          <nav className="nav-glider-container flex flex-1 flex-col overflow-y-auto py-1 px-2 scrollbar-hide" data-active-index={getActiveIndex()}>
             <div className="nav-glider-track">
               <div className="nav-glider"></div>
             </div>

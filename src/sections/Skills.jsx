@@ -28,7 +28,8 @@ export default function Skills() {
       { id: 16, name: 'MySQL', percentage: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' }
     ],
     Deploy: [
-      { id: 17, name: 'GitHub', percentage: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+      { id: 17, name: 'GoDaddy', percentage: 70, icon: 'https://cdn.simpleicons.org/godaddy/97C93D' },
+      { id: 20, name: 'Hostinger', percentage: 70, icon: 'https://cdn.simpleicons.org/hostinger/673DE6' },
       { id: 18, name: 'Vercel', percentage: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg' },
       { id: 19, name: 'Netlify', percentage: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg' }
     ],

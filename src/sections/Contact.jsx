@@ -24,7 +24,7 @@ export default function Contact() {
     {
       icon: 'ri-map-pin-line',
       title: 'Address',
-      content: 'MIET Hostel, Baghpat Bypass, N.H 58, Meerut, Uttar Pradesh, 250005',
+      content: 'NCR Delhi',
     },
     {
       icon: 'ri-phone-line',
@@ -147,4 +147,3 @@ export default function Contact() {
     </section>
   )
 }
-

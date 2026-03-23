@@ -30,8 +30,8 @@ export const PORTFOLIO_CONFIG = {
     gap: 6              // Gap between cards
   },
 
-  // Default Projects Count (3 Personal + 4 Client + 4 WordPress = 11)
-  defaultProjectsCount: 11,
+  // Default Projects Count (3 Personal + 11 Client + 4 WordPress = 18)
+  defaultProjectsCount: 18,
 
   // Backend API Settings
   api: {
@@ -47,7 +47,7 @@ export const DEFAULT_PROJECTS_CONFIG = {
   // Distribution of projects by category
   distribution: {
     'Personal Projects': 3,
-    'Client': 4,  // Updated to 4 for Client projects
+    'Client': 11,  // Keep previous 4 + add new 7 client projects
     'WordPress': 4  // Updated to 4 for WordPress projects
   },
 
@@ -142,6 +142,48 @@ export const DEFAULT_PROJECTS_CONFIG = {
       description: 'Track and manage your orders with real-time updates - Complete order management dashboard',
       link: 'https://tagsindia.com/user/orders',
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'Total Tech Assist',
+      description: 'Official business website for Total Tech Assist with company services and digital solutions.',
+      link: 'https://totaltechassist.com/',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'Total Tech Official',
+      description: 'Corporate website with brand presence, service highlights, and business support information.',
+      link: 'https://totaltechofficial.com/',
+      image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'Tidee Care',
+      description: 'Service-focused website designed for Tidee Care with clear user journeys and brand-first layout.',
+      link: 'https://tideecare.com/',
+      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'AMF English School',
+      description: 'Educational institution website with school information, contact flow, and user-friendly structure.',
+      link: 'https://amfenglishschool.com/',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'Geek Support LLC',
+      description: 'IT support business website showcasing support services, customer trust, and conversion-first CTAs.',
+      link: 'https://geeksupportllc.com/',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'Geek Repair LLC',
+      description: 'Repair service company site with technical offerings, device support details, and lead capture.',
+      link: 'https://geekrepairllc.com/',
+      image: 'https://images.unsplash.com/photo-1581092918484-8313b47cbf74?w=1200&h=800&fit=crop&q=80'
+    },
+    {
+      title: 'Luxury Fleet Services',
+      description: 'Premium transport services website featuring booking flow, fleet showcase, and polished branding.',
+      link: 'https://luxuryfleetservices.com/',
+      image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&h=800&fit=crop&q=80'
     }
   ]
 }

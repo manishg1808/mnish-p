@@ -3,9 +3,11 @@ import { Routes, Route } from 'react-router-dom'
 import { DataProvider } from './context/DataContext.jsx'
 import Sidebar from './components/Sidebar.jsx'
 import Footer from './components/Footer.jsx'
+import FloatingActions from './components/FloatingActions.jsx'
 import Hero from './sections/Hero.jsx'
 import About from './sections/About.jsx'
 import Skills from './sections/Skills.jsx'
+import TechnologyStack from './sections/TechnologyStack.jsx'
 import Portfolio from './sections/Portfolio.jsx'
 import Team from './sections/Team.jsx'
 import Services from './sections/Services.jsx'
@@ -41,6 +43,7 @@ export default function App() {
                 <Portfolio showAll />
                 <Footer />
               </main>
+              <FloatingActions />
             </>
           } />
           <Route path="*" element={
@@ -50,6 +53,7 @@ export default function App() {
                 <Hero />
                 <About />
                 <Skills />
+                <TechnologyStack />
                 <Portfolio />
                 <Team />
                 <Services />
@@ -57,6 +61,7 @@ export default function App() {
                 <Contact />
                 <Footer />
               </main>
+              <FloatingActions />
             </>
           } />
         </Routes>

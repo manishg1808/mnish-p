@@ -2,157 +2,137 @@ import React from 'react'
 import mtrLogo from '../assets/mtr logo.png'
 
 export default function Footer() {
-  const portfolioLinks = [
-    { label: 'ABOUT', href: '#about' },
-    { label: 'SKILLS', href: '#skills' },
-    { label: 'PORTFOLIO', href: '#portfolio' },
-    { label: 'SERVICES', href: '#services' },
-    { label: 'CERTIFICATES', href: '#certificate' },
-    { label: 'CONTACT', href: '#contact' },
+  const quickLinks = [
+    { label: 'About', href: '#about' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Technology Stack', href: '#technology-stack' },
+    { label: 'Projects', href: '#project' },
+    { label: 'Services', href: '#services' },
+    { label: 'Contact', href: '#contact' },
   ]
 
-  const connectLinks = [
-    { label: 'EMAIL', href: 'mailto:mnishg49@gmail.com', value: 'MNISHG49@GMAIL.COM' },
-    { label: 'PHONE', href: 'tel:+918092970688', value: '+91-8092970688' },
+  const expertise = [
+    'Full Stack Developer',
+    'Frontend Development',
+    'MERN Stack Development',
+    'WordPress Development',
+    'Responsive UI Engineering',
+    'Website Optimization',
   ]
 
-  const quickActions = [
-    { label: 'DOWNLOAD RESUME', href: '#' },
-    { label: 'VIEW PORTFOLIO', href: '#portfolio' },
-    { label: 'GET IN TOUCH', href: '#contact' },
-    { label: 'HIRE ME', href: '#contact' },
+  const socialLinks = [
+    { icon: 'ri-linkedin-line', href: 'https://linkedin.com/in/er-mnish-kumar-8227572b8', label: 'LinkedIn' },
+    { icon: 'ri-github-line', href: 'https://github.com/manishg1808', label: 'GitHub' },
+    { icon: 'ri-instagram-line', href: 'https://www.instagram.com/er.mnish_g_420?igsh=aXhpejdxbjV1Nmdr', label: 'Instagram' },
+    { icon: 'ri-facebook-line', href: 'https://www.facebook.com/share/17ZpmcKtd9/', label: 'Facebook' },
+    { icon: 'ri-whatsapp-line', href: 'https://wa.me/918986010819?text=Hello%20Manish.G', label: 'WhatsApp' },
   ]
 
   return (
-    <footer className="bg-black text-emerald-400 relative">
-      {/* Wave Divider at Top */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
-        <svg 
-          className="relative block w-full h-12 md:h-16" 
-          data-name="Layer 1" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 1200 120" 
-          preserveAspectRatio="none"
-        >
-          <path 
-            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.49,17.22,592,17.22c72.67,0,140.5,10.5,206.5,28.5C884.5,64.22,978.5,80,1200,80V0Z" 
-            className="fill-black"
-          ></path>
-          <path 
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-39.15C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" 
-            className="fill-emerald-400/20"
-            style={{ filter: 'drop-shadow(0 -2px 8px rgba(16, 185, 129, 0.3))' }}
-          ></path>
-        </svg>
-        {/* Subtle emerald glow line */}
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-400/50 to-transparent"></div>
-      </div>
-      
-      <div className="container mx-auto max-w-7xl px-4 md:px-8 lg:px-12 py-6 pt-16 md:pt-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-          {/* Logo Section */}
-          <div className="flex items-start">
-            <div className="relative">
-              <div className="border-2 border-emerald-400 px-2 py-1 footer-border-glow inline-block">
-                <img 
-                  src={mtrLogo} 
-                  alt="MTR Logo" 
-                  className="h-8 md:h-10 w-auto object-contain"
-                />
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+      <div className="container mx-auto max-w-7xl px-6 py-14 md:px-10 lg:px-16">
+        <div className="mb-10 rounded-2xl border border-slate-700 bg-gradient-to-r from-slate-900 to-slate-800 px-6 py-6 text-white shadow-xl shadow-slate-900/20 md:flex md:items-center md:justify-between md:px-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan-300">Available for Work</p>
+            <h2 className="mt-2 text-2xl font-semibold leading-tight md:text-3xl">Need a professional web solution?</h2>
+            <p className="mt-2 max-w-2xl text-sm text-slate-300">
+              Let us build a fast, modern, and business-focused digital experience for your brand.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            className="mt-4 inline-flex items-center justify-center rounded-xl bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400 md:mt-0"
+          >
+            Start Project Discussion
+          </a>
+        </div>
+
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
+          <div>
+            <div className="inline-flex items-center gap-3">
+              <img src={mtrLogo} alt="Manish Kumar logo" className="h-11 w-11 rounded-xl border border-slate-200 object-cover dark:border-slate-700" />
+              <div>
+                <p className="text-sm font-semibold text-slate-900 dark:text-white">Manish Kumar</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">Web Developer</p>
               </div>
-              <div className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-              <div className="mt-1 font-mono text-[10px] md:text-xs text-emerald-400 font-bold tracking-wider footer-text-glow">
-                MANISH KUMAR
-              </div>
+            </div>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Delivering robust, scalable, and user-focused digital products with clean UI and dependable performance.
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 text-slate-600 transition hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-cyan-400 dark:hover:text-cyan-300"
+                >
+                  <i className={`${social.icon} text-base`}></i>
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Portfolio Links Column */}
-          <div className="space-y-2">
-            <div className="relative">
-              <div className="font-mono text-xs md:text-sm font-bold text-emerald-400 border border-emerald-400 px-2 py-1 inline-block tracking-wider footer-text-glow footer-border-glow">
-                PORTFOLIO
-              </div>
-              <div className="absolute left-0 top-full w-px h-2 bg-emerald-400/50"></div>
-            </div>
-            <div className="ml-3 space-y-1 mt-2">
-              {portfolioLinks.map((link, index) => (
-                <div key={index} className="relative group">
-                  <div className="absolute -left-4 top-1/2 w-3 h-px bg-emerald-400/50"></div>
-                  <a
-                    href={link.href}
-                    className="font-mono text-[10px] md:text-xs text-emerald-400/80 hover:text-emerald-400 border border-emerald-400/50 hover:border-emerald-400 px-1.5 py-0.5 inline-block transition-all duration-200 hover:shadow-[0_0_8px_rgba(16,185,129,0.5)] footer-text-glow footer-border-glow"
-                  >
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-900 dark:text-white">Quick Links</h3>
+            <ul className="mt-4 space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-sm text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-300">
                     {link.label}
                   </a>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          {/* Connect With Us Column */}
-          <div className="space-y-2">
-            <div className="relative">
-              <div className="font-mono text-xs md:text-sm font-bold text-emerald-400 border border-emerald-400 px-2 py-1 inline-block tracking-wider footer-text-glow footer-border-glow">
-                CONNECT WITH US
-              </div>
-              <div className="absolute left-0 top-full w-px h-2 bg-emerald-400/50"></div>
-            </div>
-            <div className="ml-3 space-y-1 mt-2">
-              {connectLinks.map((link, index) => (
-                <div key={index} className="relative group">
-                  <div className="absolute -left-4 top-1/2 w-3 h-px bg-emerald-400/50"></div>
-                  <a
-                    href={link.href}
-                    className="font-mono text-[10px] md:text-xs text-emerald-400/80 hover:text-emerald-400 border border-emerald-400/50 hover:border-emerald-400 px-1.5 py-0.5 inline-block transition-all duration-200 hover:shadow-[0_0_8px_rgba(16,185,129,0.5)] block footer-text-glow footer-border-glow"
-                  >
-                    {link.label}
-                  </a>
-                  {link.value && (
-                    <div className="font-mono text-[9px] md:text-[10px] text-emerald-400/60 ml-2 mt-0.5 footer-text-glow">
-                      {link.value}
-                    </div>
-                  )}
-                </div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-900 dark:text-white">Expertise</h3>
+            <ul className="mt-4 space-y-2.5">
+              {expertise.map((item) => (
+                <li key={item} className="text-sm text-slate-600 dark:text-slate-300">
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          {/* Quick Actions Column */}
-          <div className="space-y-2">
-            <div className="relative">
-              <div className="font-mono text-xs md:text-sm font-bold text-emerald-400 border border-emerald-400 px-2 py-1 inline-block tracking-wider footer-text-glow footer-border-glow">
-                QUICK ACTIONS
-              </div>
-              <div className="absolute left-0 top-full w-px h-2 bg-emerald-400/50"></div>
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-900 dark:text-white">Contact</h3>
+            <div className="mt-4 space-y-3 text-sm">
+              <a href="mailto:mnishg49@gmail.com" className="flex items-center gap-2 text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-300">
+                <i className="ri-mail-line text-base"></i>
+                <span>mnishg49@gmail.com</span>
+              </a>
+              <a href="tel:+918092970688" className="flex items-center gap-2 text-slate-600 transition hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-300">
+                <i className="ri-phone-line text-base"></i>
+                <span>+91 8092970688</span>
+              </a>
             </div>
-            <div className="ml-3 space-y-1 mt-2">
-              {quickActions.map((action, index) => (
-                <div key={index} className="relative group">
-                  <div className="absolute -left-4 top-1/2 w-3 h-px bg-emerald-400/50"></div>
-                  <a
-                    href={action.href}
-                    className="font-mono text-[10px] md:text-xs text-emerald-400/80 hover:text-emerald-400 border border-emerald-400/50 hover:border-emerald-400 px-1.5 py-0.5 inline-block transition-all duration-200 hover:shadow-[0_0_8px_rgba(16,185,129,0.5)] footer-text-glow footer-border-glow"
-                  >
-                    {action.label}
-                  </a>
-                </div>
-              ))}
+
+            <div className="mt-5 space-y-2.5">
+              <a
+                href="#project"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300"
+              >
+                View Portfolio
+              </a>
+              <a
+                href="#certificate"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:border-cyan-500 hover:text-cyan-600 dark:border-slate-700 dark:text-slate-200 dark:hover:border-cyan-400 dark:hover:text-cyan-300"
+              >
+                View Certifications
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="mt-4 pt-4 border-t border-emerald-400/20">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
-            <div className="font-mono text-[9px] md:text-xs text-emerald-400/60 footer-text-glow">
-              © {new Date().getFullYear()} <span className="text-emerald-400">MANISH KUMAR</span> ALL RIGHTS RESERVED
-            </div>
-            <div className="flex gap-1.5">
-              <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></div>
-              <div className="w-1.5 h-1.5 bg-emerald-400/60 rounded-full"></div>
-            </div>
-          </div>
+        <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-slate-200 pt-5 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400 md:flex-row">
+          <p>Copyright {new Date().getFullYear()} Manish Kumar. All rights reserved.</p>
+          <p>Crafted with professional standards for performance and clarity.</p>
         </div>
       </div>
     </footer>

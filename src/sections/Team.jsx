@@ -1,80 +1,82 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useData } from '../context/DataContext.jsx'
 
 export default function Team() {
   const { team: teamMembers, loading } = useData()
   const teamBackgroundImage = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=2200&q=80'
 
-  // Sample data for demonstration if no team members
+  // Default team members
   const sampleMembers = [
     {
       id: 1,
-      name: 'John Doe',
+      name: 'Tanya Raj',
       role: 'Frontend Developer',
-      bio: 'Passionate about creating beautiful and functional user interfaces.',
-      email: 'john@example.com',
-      linkedin: 'https://linkedin.com'
+      bio: 'Frontend developer focused on responsive, clean, and user-friendly interfaces.',
+      linkedin: 'https://linkedin.com/in/tanya-raj-595986258'
     },
     {
       id: 2,
-      name: 'Jane Smith',
-      role: 'Backend Developer',
-      bio: 'Expert in building scalable server-side applications and APIs.',
-      email: 'jane@example.com',
-      linkedin: 'https://linkedin.com'
+      name: 'Anshuman Mishra',
+      role: 'Full Stack Developer',
+      bio: 'Builds scalable full stack solutions across frontend and backend systems.',
+      linkedin: '#'
     },
     {
       id: 3,
-      name: 'Mike Johnson',
+      name: 'Parkash Singh',
       role: 'Full Stack Developer',
-      bio: 'Specialized in end-to-end web development with modern technologies.',
-      email: 'mike@example.com',
-      linkedin: 'https://linkedin.com'
+      bio: 'Develops reliable full stack applications with practical implementation focus.',
+      linkedin: '#'
     },
     {
       id: 4,
-      name: 'Sarah Williams',
-      role: 'UI/UX Designer',
-      bio: 'Creating intuitive and visually appealing user experiences.',
-      email: 'sarah@example.com',
-      linkedin: 'https://linkedin.com'
+      name: 'Himanshu Tiwari',
+      role: 'Full Stack Developer',
+      bio: 'Full stack engineer delivering production-ready web applications.',
+      portfolio: 'https://www.himanshutiwari.in/',
+      linkedin: 'https://www.linkedin.com/in/himanshu1662'
     },
     {
       id: 5,
-      name: 'David Brown',
-      role: 'DevOps Engineer',
-      bio: 'Expert in cloud infrastructure and deployment automation.',
-      email: 'david@example.com',
-      linkedin: 'https://linkedin.com'
+      name: 'Om Prakash',
+      role: 'PHP Full Stack Developer',
+      bio: 'Specializes in PHP-based full stack development and web application delivery.',
+      linkedin: '#'
     },
     {
       id: 6,
-      name: 'Emily Davis',
-      role: 'Mobile Developer',
-      bio: 'Building cross-platform mobile applications with React Native.',
-      email: 'emily@example.com',
-      linkedin: 'https://linkedin.com'
+      name: 'Mantu Kumar',
+      role: 'Frontend Developer',
+      bio: 'Frontend developer with focus on modern UI implementation and smooth UX.',
+      linkedin: 'https://www.linkedin.com/in/mantu-kumar-singh-8874a4387?utm_source=share_via&utm_content=profile&utm_medium=member_android'
     },
     {
       id: 7,
-      name: 'Chris Wilson',
-      role: 'Data Scientist',
-      bio: 'Transforming data into actionable insights and predictions.',
-      email: 'chris@example.com',
-      linkedin: 'https://linkedin.com'
+      name: 'Avinash Kumar',
+      role: 'MERN Stack Developer',
+      bio: 'Works on MongoDB, Express, React, and Node.js based scalable applications.',
+      linkedin: '#'
     },
     {
       id: 8,
-      name: 'Lisa Anderson',
-      role: 'Product Manager',
-      bio: 'Leading product strategy and development from concept to launch.',
-      email: 'lisa@example.com',
-      linkedin: 'https://linkedin.com'
+      name: 'Pritam Kumar',
+      role: 'MERN Stack Developer',
+      bio: 'Builds full stack MERN solutions with performance-focused architecture.',
+      linkedin: '#'
     }
   ]
 
-  // Use actual data if available, otherwise show sample data
-  const displayMembers = teamMembers.length > 0 ? teamMembers : sampleMembers
+  // Merge backend and default members, avoid duplicate names
+  const displayMembers = useMemo(() => {
+    const merged = new Map()
+    ;[...(Array.isArray(teamMembers) ? teamMembers : []), ...sampleMembers].forEach((member, index) => {
+      const key = (member?.name || `member-${index}`).toLowerCase().trim()
+      if (!merged.has(key)) {
+        merged.set(key, member)
+      }
+    })
+    return Array.from(merged.values())
+  }, [teamMembers])
   const marqueeMembers = [...displayMembers, ...displayMembers]
 
   // Team Card Component
